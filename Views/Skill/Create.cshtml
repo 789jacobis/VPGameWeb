@@ -1,0 +1,23 @@
+﻿@model VpGameWeb.Models.Skill
+
+<h1>新增技能</h1>
+
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label class="form-label">名稱</label>
+        <input asp-for="Name" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">分類</label>
+        <input asp-for="Category" class="form-control" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">說明</label>
+        <textarea asp-for="Description" class="form-control"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">新增</button>
+    <a href="/Skill" class="btn btn-secondary">取消</a>
+</form>
