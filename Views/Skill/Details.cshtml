@@ -12,4 +12,29 @@
     @Model.Description
 </p>
 
-<a href="/Skill">返回技能列表</a>
+@if (Model.Levels.Count > 0)
+{
+    <h2>升級表</h2>
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>等級</th>
+                <th>效果</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var level in Model.Levels)
+            {
+                <tr>
+                    <td>LV @level.Level</td>
+                    <td>@level.Description</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+<a asp-controller="Skill" asp-action="Index" class="btn btn-secondary">
+    返回技能列表
+</a>

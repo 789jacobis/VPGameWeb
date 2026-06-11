@@ -1,0 +1,19 @@
+@model VpGameWeb.Models.Lore
+
+<h1>@Model.Title</h1>
+
+<p class="text-muted">
+    @Model.Category
+</p>
+
+<hr />
+
+<p>
+    @Model.Content
+</p>
+
+<a asp-controller="Lore"
+   asp-action="Index"
+   class="btn btn-secondary">
+    返回劇情設定列表
+</a>

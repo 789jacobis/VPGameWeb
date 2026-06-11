@@ -1,6 +1,6 @@
-﻿namespace VpGameWeb.Models
+namespace VpGameWeb.Models
 {
-    public class Skill
+    public class Item
     {
         public int Id { get; set; }
 
@@ -11,7 +11,5 @@
         public string Description { get; set; } = "";
 
         public string IconUrl { get; set; } = "";
-             
-        public List<SkillLevel> Levels { get; set; } = new List<SkillLevel>();
     }
 }

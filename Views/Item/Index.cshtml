@@ -1,0 +1,24 @@
+@model List<VpGameWeb.Models.Item>
+
+<h1>道具圖鑑</h1>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="@item.IconUrl" class="card-img-top p-3 gallery-card-img" alt="@item.Name">
+
+                <div class="card-body">
+                    <h5 class="card-title">@item.Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@item.Category</h6>
+                    <p class="card-text">@item.Description</p>
+
+                    <a class="btn btn-primary" asp-controller="Item" asp-action="Details" asp-route-id="@item.Id">
+                        查看詳情
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

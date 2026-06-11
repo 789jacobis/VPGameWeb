@@ -1,18 +1,19 @@
 ﻿@model List<VpGameWeb.Models.Skill>
 
-<h1 class="mb-4">技能圖鑑</h1>
+<h1>技能圖鑑</h1>
 
 <div class="row">
     @foreach (var skill in Model)
     {
-        <div class="col-md-4 mb-4">
+        <div class="col-md-4 mb-3">
             <div class="card h-100">
+                <img src="@skill.IconUrl" class="card-img-top p-3 gallery-card-img" alt="@skill.Name">
                 <div class="card-body">
                     <h5 class="card-title">@skill.Name</h5>
                     <h6 class="card-subtitle mb-2 text-muted">@skill.Category</h6>
                     <p class="card-text">@skill.Description</p>
 
-                    <a href="/Skill/Details/@skill.Id" class="btn btn-primary">
+                    <a class="btn btn-primary" asp-controller="Skill" asp-action="Details" asp-route-id="@skill.Id">
                         查看詳情
                     </a>
                 </div>

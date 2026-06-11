@@ -1,0 +1,33 @@
+@model List<VpGameWeb.Models.Lore>
+
+<h1>劇情設定</h1>
+
+<div class="row">
+    @foreach (var lore in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <div class="card-body">
+
+                    <h5 class="card-title">@lore.Title</h5>
+
+                    <h6 class="card-subtitle mb-2 text-muted">
+                        @lore.Category
+                    </h6>
+
+                    <p class="card-text">
+                        @lore.Summary
+                    </p>
+
+                    <a class="btn btn-primary"
+                       asp-controller="Lore"
+                       asp-action="Details"
+                       asp-route-id="@lore.Id">
+                        閱讀全文
+                    </a>
+
+                </div>
+            </div>
+        </div>
+    }
+</div>

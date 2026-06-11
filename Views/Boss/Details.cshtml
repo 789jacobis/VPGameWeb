@@ -1,0 +1,32 @@
+@model VpGameWeb.Models.Boss
+
+<h1>@Model.Name</h1>
+
+<img src="@Model.IconUrl"
+     class="detail-main-img"
+     alt="@Model.Name" />
+
+<p>
+    <strong>HP：</strong>
+    @Model.Hp
+</p>
+
+<p>
+    <strong>介紹：</strong>
+    @Model.Description
+</p>
+
+<h2>技能列表</h2>
+
+<ul>
+    @foreach (var skill in Model.Skills)
+    {
+        <li>@skill</li>
+    }
+</ul>
+
+<a asp-controller="Boss"
+   asp-action="Index"
+   class="btn btn-secondary">
+    返回 Boss 圖鑑
+</a>
