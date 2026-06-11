@@ -1,0 +1,25 @@
+@model VpGameWeb.Models.Monster
+
+<h1>@Model.Name</h1>
+
+<div class="card">
+    <div class="card-body">
+
+        <h5>類型</h5>
+        <p>@Model.Type</p>
+
+        <h5>血量</h5>
+        <p>@Model.Hp</p>
+
+        <h5>攻擊力</h5>
+        <p>@Model.Attack</p>
+
+        <h5>介紹</h5>
+        <p>@Model.Description</p>
+
+        <a asp-controller="Monster" asp-action="Index" class="btn btn-secondary">
+            返回怪物列表
+        </a>
+
+    </div>
+</div>

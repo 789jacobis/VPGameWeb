@@ -1,0 +1,21 @@
+@model List<VpGameWeb.Models.Monster>
+
+<h1>怪物圖鑑</h1>
+
+<div class="row">
+    @foreach (var monster in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@monster.Name</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">@monster.Type</h6>
+                    <p class="card-text">@monster.Description</p>
+                    <a class="btn btn-primary" asp-controller="Monster" asp-action="Details" asp-route-id="@monster.Id">
+                        查看詳情
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
