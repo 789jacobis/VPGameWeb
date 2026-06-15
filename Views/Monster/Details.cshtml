@@ -2,20 +2,42 @@
 
 <h1>@Model.Name</h1>
 
+<img src="@Model.IconUrl"
+     class="detail-main-img"
+     alt="@Model.Name" />
+
 <div class="card">
     <div class="card-body">
 
-        <h5>類型</h5>
-        <p>@Model.Type</p>
+        <p>
+            <strong>類型：</strong>
+            @Model.Type
+        </p>
 
-        <h5>血量</h5>
-        <p>@Model.Hp</p>
+        <p>
+            <strong>HP：</strong>
+            @Model.Hp
+        </p>
 
-        <h5>攻擊力</h5>
-        <p>@Model.Attack</p>
+        <p>
+            <strong>攻擊力：</strong>
+            @Model.Attack
+        </p>
 
-        <h5>介紹</h5>
-        <p>@Model.Description</p>
+        <p>
+            <strong>移動速度：</strong>
+            @Model.MoveSpeed
+        </p>
+
+        <p>
+            <strong>經驗值：</strong>
+            @Model.ExpReward
+        </p>
+
+        <p>
+            <strong>介紹：</strong>
+            @Model.Description
+        </p>
 
         <a asp-controller="Monster" asp-action="Index" class="btn btn-secondary">
             返回怪物列表

@@ -12,6 +12,12 @@ namespace VpGameWeb.Models
 
         public int Attack { get; set; }
 
+        public double MoveSpeed { get; set; }
+
+        public int ExpReward { get; set; }
+
         public string Description { get; set; } = "";
+
+        public string IconUrl { get; set; } = "";
     }
 }

@@ -18,7 +18,7 @@ namespace VpGameWeb.Controllers
             new Item
             {
                 Id = 2,
-                Name = "假愛心",
+                Name = "有毒愛心",
                 Category = "陷阱道具",
                 Description = "外觀類似愛心，但撿取後會扣除生命值。",
                 IconUrl = "/images/items/fake-heart.png"
@@ -36,7 +36,7 @@ namespace VpGameWeb.Controllers
                 Id = 4,
                 Name = "金幣",
                 Category = "貨幣道具",
-                Description = "可用於商店購買永久強化。",
+                Description = "可在額外內容頁面內購買永久強化。",
                 IconUrl = "/images/items/coin.png"
             },
             new Item
@@ -44,7 +44,7 @@ namespace VpGameWeb.Controllers
                 Id = 5,
                 Name = "磁鐵",
                 Category = "輔助道具",
-                Description = "撿取後吸引附近的經驗方塊。",
+                Description = "撿取後可吸引附近的經驗方塊。",
                 IconUrl = "/images/items/magnet.png"
             }
         };
