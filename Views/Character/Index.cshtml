@@ -1,0 +1,23 @@
+@model List<VpGameWeb.Models.Character>
+
+<h1>人物圖鑑</h1>
+
+<div class="row">
+    @foreach (var character in Model)
+    {
+        <div class="col-md-4 mb-3">
+            <div class="card h-100">
+                <img src="@character.IconUrl" class="card-img-top p-3 gallery-card-img" alt="@character.Name">
+
+                <div class="card-body">
+                    <h5 class="card-title">@character.Name</h5>
+                    <p class="card-text">@character.Description</p>
+
+                    <a class="btn btn-primary" asp-controller="Character" asp-action="Details" asp-route-id="@character.Id">
+                        查看詳情
+                    </a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

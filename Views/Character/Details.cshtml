@@ -1,0 +1,98 @@
+@model VpGameWeb.Models.Character
+
+<div class="container">
+
+    <h1 class="mb-4">@Model.Name</h1>
+
+    <div class="row">
+
+        <!-- 左側大立繪 -->
+        <div class="col-md-3">
+
+            <div class="portrait-box">
+                <img src="@Model.PortraitUrl" class="character-portrait" alt="@Model.Name" />
+            </div>
+
+        </div>
+
+        <!-- 右側 -->
+        <div class="col-md-9">
+
+            <!-- 小像素圖 -->
+            <div class="mb-3">
+                <img src="@Model.IconUrl" style="width:120px;" alt="@Model.Name" />
+            </div>
+
+            <!-- 文字資料 -->
+            <div class="card">
+                <div class="card-body">
+
+                    <p><strong>名字：</strong>@Model.Name</p>
+                    <p><strong>種族：</strong>@Model.Race</p>
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Age))
+                    {
+                        <p><strong>年齡：</strong>@Model.Age</p>
+                    }
+
+                    @if (Model.Hp > 0)
+                    {
+                        <p><strong>HP：</strong>@Model.Hp</p>
+                    }
+
+                    @if (Model.Attack > 0)
+                    {
+                        <p><strong>攻擊力：</strong>@Model.Attack</p>
+                    }
+
+                    <p><strong>移動速度：</strong>@Model.MoveSpeed</p>
+
+                    @if (!string.IsNullOrWhiteSpace(Model.Traits))
+                    {
+                        <p><strong>萌點：</strong>@Model.Traits</p>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(Model.BattleScene))
+                    {
+                        <p><strong>戰鬥場景：</strong>@Model.BattleScene</p>
+                    }
+
+                    @if (!string.IsNullOrWhiteSpace(Model.MonsterGroup))
+                    {
+                        <p><strong>搭配小怪：</strong>@Model.MonsterGroup</p>
+                    }
+
+                    <hr />
+
+                    <h4>角色簡介</h4>
+
+                    <p>@Model.Description</p>
+
+                    @if (Model.Skills.Any())
+                    {
+                        <hr />
+
+                        <h4>技能列表</h4>
+
+                        <ul>
+                            @foreach (var skill in Model.Skills)
+                            {
+                                <li>@skill</li>
+                            }
+                        </ul>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <br />
+
+    <a asp-controller="Character" asp-action="Index" class="btn btn-secondary">
+        返回人物圖鑑
+    </a>
+
+</div>

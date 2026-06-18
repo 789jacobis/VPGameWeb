@@ -158,3 +158,15 @@ body {
     object-fit: contain;
     margin-bottom: 20px;
 }
+
+.portrait-box {
+    height: 750px;
+    overflow: visible;
+    border: 2px solid black;
+}
+
+.character-portrait {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}

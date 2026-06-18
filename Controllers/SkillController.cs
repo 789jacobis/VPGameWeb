@@ -12,7 +12,7 @@ namespace VpGameWeb.Controllers
                 Id = 1,
                 Name = "Basic Bullet",
                 Category = "初始技能",
-                Description = "發射水球攻擊最近敵人",
+                Description = "發射水球攻擊離自身最近的敵人",
                 IconUrl = "/images/skills/basic-bullet.png",
 
                 Levels = new List<SkillLevel>
@@ -84,7 +84,7 @@ namespace VpGameWeb.Controllers
                 Id = 5,
                 Name = "毒煙",
                 Category = "場內解鎖技能",
-                Description = "毒煙會在敵人之間彈跳",
+                Description = "朝敵人發射毒煙，毒煙會在敵人之間彈跳",
                 IconUrl = "/images/skills/bouncing-ball.png",
 
                 Levels = new List<SkillLevel>

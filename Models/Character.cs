@@ -1,12 +1,12 @@
 namespace VpGameWeb.Models
 {
-    public class Boss
+    public class Character
     {
         public int Id { get; set; }
 
         public string Name { get; set; } = "";
 
-        public string RealName { get; set; } = "";
+        public string Race { get; set; } = "";
 
         public int Hp { get; set; }
 
@@ -24,6 +24,7 @@ namespace VpGameWeb.Models
 
         public string MonsterGroup { get; set; } = "";
 
+        public string PortraitUrl { get; set; } = "";
         public string IconUrl { get; set; } = "";
 
         public List<string> Skills { get; set; } = new();
