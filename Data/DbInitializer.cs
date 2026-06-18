@@ -9,6 +9,8 @@ namespace VpGameWeb.Data
             SeedCharacters(context);
             SeedSkills(context);
             SeedMonsters(context);
+            SeedCharacterAbilities(context);
+            SeedItems(context);
         }
 
         private static void SeedCharacters(AppDbContext context)
@@ -30,15 +32,41 @@ namespace VpGameWeb.Data
                     Description = "戰爭孤兒，從小在教會由修女艾琳扶養長大，夢想是成為大魔法師並協助勇者討伐魔王。為了成為大魔法師而保持處男之身至今，從未交過女朋友。",
                     PortraitUrl = "/images/characters/portraits/player.png",
                     IconUrl = "/images/characters/player.png",
-                    Skills = new List<string>
+                    Abilities = new List<CharacterAbility>
                     {
-                        "水魔法：發射強大的水球彈。",
-                        "火魔法：召喚火輪進行防禦。",
-                        "岩魔法：從地下召喚巨大岩塊進行攻擊。",
-                        "雷魔法：展開圓形電圈領域進行防禦。",
-                        "毒魔法：發射有毒且會迅速擴散的氣體。",
-                        "雷魔法：發射會到處彈跳的閃電箭。",
-                        "木魔法：發射木頭迴旋鏢。"
+                        new CharacterAbility
+                        {
+                            Description = "水魔法：發射強大的水球彈。"
+                        },
+                        new CharacterAbility
+                        {
+                            Description = "火魔法：召喚火輪進行防禦。"
+                        },
+
+                        new CharacterAbility
+                        {
+                            Description = "岩魔法：從地下召喚巨大岩塊進行攻擊。。"
+                        },
+
+                        new CharacterAbility
+                        {
+                            Description = "雷魔法：展開圓形電圈領域進行防禦。"
+                        },
+
+                        new CharacterAbility
+                        {
+                            Description = "毒魔法：發射有毒且會迅速擴散的氣體。"
+                        },
+
+                        new CharacterAbility
+                        {
+                            Description = "雷魔法：發射會到處彈跳的閃電箭。"
+                        },
+
+                        new CharacterAbility
+                        {
+                            Description = "木魔法：發射木頭迴旋鏢。"
+                        },
                     }
                 },
 
@@ -55,11 +83,20 @@ namespace VpGameWeb.Data
                     BattleScene = "夜晚的墳墓",
                     MonsterGroup = "弗蘭肯斯坦、巫師、幽靈、殭屍、德古拉",
                     IconUrl = "/images/characters/vampire.png",
-                    Skills = new List<string>
+                    Abilities = new List<CharacterAbility>
                     {
-                        "衝刺攻擊：朝玩家方向快速衝刺，共執行3次。",
-                        "召喚小怪：在自身周圍隨機位置召喚8隻德古拉攻擊玩家。",
-                        "無死角射擊：以自身為圓心，向四周發射12枚獠牙子彈。"
+                        new CharacterAbility
+                        {
+                            Description = "衝刺攻擊：朝玩家方向快速衝刺，共執行3次。"
+                        },
+                        new CharacterAbility
+                        {
+                            Description = "召喚小怪：在自身周圍隨機位置召喚8隻德古拉攻擊玩家。"
+                        },
+                        new CharacterAbility
+                        {
+                            Description = "無死角射擊：以自身為圓心，向四周發射12枚獠牙子彈。"
+                        }
                     }
                 },
 
@@ -76,11 +113,20 @@ namespace VpGameWeb.Data
                     BattleScene = "雪地",
                     MonsterGroup = "冰雪精靈、黑暗精靈、冰魔法師、冰狼、雪怪",
                     IconUrl = "/images/characters/snowwoman.png",
-                    Skills = new List<string>
+                    Abilities = new List<CharacterAbility>
                     {
-                        "衝刺射擊：朝玩家方向快速衝刺，停頓時以自身為圓心，向四周發射14枚冰彈，共執行3次。",
-                        "召喚小怪：在自身周圍隨機位置召喚8隻冰狼攻擊玩家。",
-                        "三重冰浪：召喚三道巨大冰浪從不同方向攻擊玩家。"
+                        new CharacterAbility
+                        {
+                            Description = "衝刺射擊：朝玩家方向快速衝刺，停頓時以自身為圓心，向四周發射14枚冰彈，共執行3次。"
+                        },
+                        new CharacterAbility
+                        {
+                            Description = "召喚小怪：在自身周圍隨機位置召喚8隻冰狼攻擊玩家。"
+                        },
+                        new CharacterAbility
+                        {
+                            Description = "三重冰浪：召喚三道巨大冰浪從不同方向攻擊玩家。"
+                        }
                     }
                 },
 
@@ -97,11 +143,20 @@ namespace VpGameWeb.Data
                     BattleScene = "荒蕪的岩地",
                     MonsterGroup = "惡魔、眼球、小護士、紫色惡魔、雙足猛犬、四足惡犬、粉紅幽靈",
                     IconUrl = "/images/characters/succubus.png",
-                    Skills = new List<string>
+                    Abilities = new List<CharacterAbility>
                     {
-                        "衝刺射擊：朝玩家方向快速衝刺，停頓時以自身為圓心，向四周發射16支愛心箭，共執行3次。",
-                        "召喚小怪：在自身周圍隨機位置召喚8隻粉紅幽靈攻擊玩家，粉紅幽靈死亡後會在原地掉落一個有毒愛心，玩家撿取後會造成20傷害。",
-                        "愛心箭雨：以玩家為圓心，在圓形範圍內降下40支愛心箭攻擊玩家。"
+                        new CharacterAbility
+                        {
+                            Description = "衝刺射擊：朝玩家方向快速衝刺，停頓時以自身為圓心，向四周發射16支愛心箭，共執行3次。"
+                        },
+                        new CharacterAbility
+                        {
+                            Description = "召喚小怪：在自身周圍隨機位置召喚8隻粉紅幽靈攻擊玩家，粉紅幽靈死亡後會在原地掉落一個有毒愛心，玩家撿取後會造成20傷害。"
+                        },
+                        new CharacterAbility
+                        {
+                            Description = "愛心箭雨：以玩家為圓心，在圓形範圍內降下40支愛心箭攻擊玩家。"
+                        }
                     }
                 }
             };
@@ -249,197 +304,353 @@ namespace VpGameWeb.Data
             }
 
             List<Monster> monsters = new List<Monster>
-    {
-        new Monster
-        {
-            Name = "弗蘭肯斯坦",
-            Type = "近戰",
-            Hp = 15,
-            Attack = 3,
-            MoveSpeed = 3,
-            ExpReward = 5,
-            Description = "無特殊能力的近戰小怪，能輕易擊殺。",
-            IconUrl = "/images/monsters/frankenstein.png"
-        },
-        new Monster
-        {
-            Name = "巫師",
-            Type = "遠程",
-            Hp = 30,
-            Attack = 4,
-            MoveSpeed = 4,
-            ExpReward = 7,
-            Description = "會與玩家保持距離的遠程小怪，每2秒朝玩家發射1顆傷害為7的子彈。",
-            IconUrl = "/images/monsters/wizard.png"
-        },
-        new Monster
-        {
-            Name = "幽靈",
-            Type = "近戰",
-            Hp = 30,
-            Attack = 3,
-            MoveSpeed = 5,
-            ExpReward = 10,
-            Description = "移動速度極快，且血量極低的近戰小怪。",
-            IconUrl = "/images/monsters/ghost.png"
-        },
-        new Monster
-        {
-            Name = "殭屍",
-            Type = "近戰",
-            Hp = 120,
-            Attack = 10,
-            MoveSpeed = 2.5,
-            ExpReward = 12,
-            Description = "移動速度極慢，且血量極高的近戰小怪。",
-            IconUrl = "/images/monsters/zombie.png"
-        },
-        new Monster
-        {
-            Name = "德古拉",
-            Type = "近戰",
-            Hp = 100,
-            Attack = 8,
-            MoveSpeed = 2,
-            ExpReward = 12,
-            Description = "移動速度極慢的近戰小怪，但衝刺時速度會大幅提升。",
-            IconUrl = "/images/monsters/dracula.png"
-        },
-        new Monster
-        {
-            Name = "冰雪精靈",
-            Type = "近戰",
-            Hp = 17,
-            Attack = 4,
-            MoveSpeed = 3,
-            ExpReward = 5,
-            Description = "無特殊能力的近戰小怪，能輕易擊殺。",
-            IconUrl = "/images/monsters/snowelf.png"
-        },
-        new Monster
-        {
-            Name = "黑暗精靈",
-            Type = "近戰",
-            Hp = 21,
-            Attack = 4,
-            MoveSpeed = 4,
-            ExpReward = 10,
-            Description = "死亡後會在原地留下毒液的近戰小怪。",
-            IconUrl = "/images/monsters/dark-snowelf.png"
-        },
-        new Monster
-        {
-            Name = "冰魔法師",
-            Type = "遠程",
-            Hp = 50,
-            Attack = 5,
-            MoveSpeed = 4,
-            ExpReward = 10,
-            Description = "會與玩家保持距離的遠程小怪，每2秒朝玩家發射3顆傷害為9的子彈。",
-            IconUrl = "/images/monsters/ice-wizard.png"
-        },
-        new Monster
-        {
-            Name = "冰狼",
-            Type = "近戰",
-            Hp = 45,
-            Attack = 6,
-            MoveSpeed = 5,
-            ExpReward = 10,
-            Description = "移動速度極快，且血量極低的近戰小怪。",
-            IconUrl = "/images/monsters/snowwolf.png"
-        },
-        new Monster
-        {
-            Name = "雪怪",
-            Type = "近戰",
-            Hp = 135,
-            Attack = 12,
-            MoveSpeed = 2.5,
-            ExpReward = 12,
-            Description = "移動速度極慢，且血量極高的近戰小怪。",
-            IconUrl = "/images/monsters/yeti.png"
-        },
-        new Monster
-        {
-            Name = "惡魔",
-            Type = "近戰",
-            Hp = 30,
-            Attack = 4,
-            MoveSpeed = 3,
-            ExpReward = 5,
-            Description = "無特殊能力的近戰小怪，能輕易擊殺。",
-            IconUrl = "/images/monsters/devil.png"
-        },
-        new Monster
-        {
-            Name = "眼球",
-            Type = "遠程",
-            Hp = 55,
-            Attack = 5,
-            MoveSpeed = 4,
-            ExpReward = 11,
-            Description = "會與玩家保持距離的遠程小怪，每2秒朝玩家發射3顆傷害為10的子彈。",
-            IconUrl = "/images/monsters/eyeball.png"
-        },
-        new Monster
-        {
-            Name = "小護士",
-            Type = "近戰",
-            Hp = 125,
-            Attack = 11,
-            MoveSpeed = 2,
-            ExpReward = 13,
-            Description = "移動速度極慢的近戰小怪，但衝刺時速度會大幅提升。",
-            IconUrl = "/images/monsters/nurse.png"
-        },
-        new Monster
-        {
-            Name = "紫色惡魔",
-            Type = "近戰",
-            Hp = 50,
-            Attack = 5,
-            MoveSpeed = 4,
-            ExpReward = 10,
-            Description = "死亡後會在原地留下毒液的近戰小怪。",
-            IconUrl = "/images/monsters/purple-devil.png"
-        },
-        new Monster
-        {
-            Name = "雙足猛犬",
-            Type = "近戰",
-            Hp = 155,
-            Attack = 12,
-            MoveSpeed = 2.5,
-            ExpReward = 10,
-            Description = "移動速度極慢，且血量極高的近戰小怪。",
-            IconUrl = "/images/monsters/big-dog.png"
-        },
-        new Monster
-        {
-            Name = "四足惡犬",
-            Type = "近戰",
-            Hp = 55,
-            Attack = 6,
-            MoveSpeed = 5,
-            ExpReward = 11,
-            Description = "移動速度極快，且血量極低的近戰小怪。",
-            IconUrl = "/images/monsters/small-dog.png"
-        },
-        new Monster
-        {
-            Name = "粉紅幽靈",
-            Type = "近戰",
-            Hp = 40,
-            Attack = 4,
-            MoveSpeed = 4,
-            ExpReward = 0,
-            Description = "會在原地掉落一個有毒愛心，玩家撿取後會造成20傷害。",
-            IconUrl = "/images/monsters/pink-ghost.png"
-        }
-    };
+            {
+                new Monster
+                {
+                    Name = "弗蘭肯斯坦",
+                    Type = "近戰",
+                    Hp = 15,
+                    Attack = 3,
+                    MoveSpeed = 3,
+                    ExpReward = 5,
+                    Description = "無特殊能力的近戰小怪，能輕易擊殺。",
+                    IconUrl = "/images/monsters/frankenstein.png"
+                },
+                new Monster
+                {
+                    Name = "巫師",
+                    Type = "遠程",
+                    Hp = 30,
+                    Attack = 4,
+                    MoveSpeed = 4,
+                    ExpReward = 7,
+                    Description = "會與玩家保持距離的遠程小怪，每2秒朝玩家發射1顆傷害為7的子彈。",
+                    IconUrl = "/images/monsters/wizard.png"
+                },
+                new Monster
+                {
+                    Name = "幽靈",
+                    Type = "近戰",
+                    Hp = 30,
+                    Attack = 3,
+                    MoveSpeed = 5,
+                    ExpReward = 10,
+                    Description = "移動速度極快，且血量極低的近戰小怪。",
+                    IconUrl = "/images/monsters/ghost.png"
+                },
+                new Monster
+                {
+                    Name = "殭屍",
+                    Type = "近戰",
+                    Hp = 120,
+                    Attack = 10,
+                    MoveSpeed = 2.5,
+                    ExpReward = 12,
+                    Description = "移動速度極慢，且血量極高的近戰小怪。",
+                    IconUrl = "/images/monsters/zombie.png"
+                },
+                new Monster
+                {
+                    Name = "德古拉",
+                    Type = "近戰",
+                    Hp = 100,
+                    Attack = 8,
+                    MoveSpeed = 2,
+                    ExpReward = 12,
+                    Description = "移動速度極慢的近戰小怪，但衝刺時速度會大幅提升。",
+                    IconUrl = "/images/monsters/dracula.png"
+                },
+                new Monster
+                {
+                    Name = "冰雪精靈",
+                    Type = "近戰",
+                    Hp = 17,
+                    Attack = 4,
+                    MoveSpeed = 3,
+                    ExpReward = 5,
+                    Description = "無特殊能力的近戰小怪，能輕易擊殺。",
+                    IconUrl = "/images/monsters/snowelf.png"
+                },
+                new Monster
+                {
+                    Name = "黑暗精靈",
+                    Type = "近戰",
+                    Hp = 21,
+                    Attack = 4,
+                    MoveSpeed = 4,
+                    ExpReward = 10,
+                    Description = "死亡後會在原地留下毒液的近戰小怪。",
+                    IconUrl = "/images/monsters/dark-snowelf.png"
+                },
+                new Monster
+                {
+                    Name = "冰魔法師",
+                    Type = "遠程",
+                    Hp = 50,
+                    Attack = 5,
+                    MoveSpeed = 4,
+                    ExpReward = 10,
+                    Description = "會與玩家保持距離的遠程小怪，每2秒朝玩家發射3顆傷害為9的子彈。",
+                    IconUrl = "/images/monsters/ice-wizard.png"
+                },
+                new Monster
+                {
+                    Name = "冰狼",
+                    Type = "近戰",
+                    Hp = 45,
+                    Attack = 6,
+                    MoveSpeed = 5,
+                    ExpReward = 10,
+                    Description = "移動速度極快，且血量極低的近戰小怪。",
+                    IconUrl = "/images/monsters/snowwolf.png"
+                },
+                new Monster
+                {
+                    Name = "雪怪",
+                    Type = "近戰",
+                    Hp = 135,
+                    Attack = 12,
+                    MoveSpeed = 2.5,
+                    ExpReward = 12,
+                    Description = "移動速度極慢，且血量極高的近戰小怪。",
+                    IconUrl = "/images/monsters/yeti.png"
+                },
+                new Monster
+                {
+                    Name = "惡魔",
+                    Type = "近戰",
+                    Hp = 30,
+                    Attack = 4,
+                    MoveSpeed = 3,
+                    ExpReward = 5,
+                    Description = "無特殊能力的近戰小怪，能輕易擊殺。",
+                    IconUrl = "/images/monsters/devil.png"
+                },
+                new Monster
+                {
+                    Name = "眼球",
+                    Type = "遠程",
+                    Hp = 55,
+                    Attack = 5,
+                    MoveSpeed = 4,
+                    ExpReward = 11,
+                    Description = "會與玩家保持距離的遠程小怪，每2秒朝玩家發射3顆傷害為10的子彈。",
+                    IconUrl = "/images/monsters/eyeball.png"
+                },
+                new Monster
+                {
+                    Name = "小護士",
+                    Type = "近戰",
+                    Hp = 125,
+                    Attack = 11,
+                    MoveSpeed = 2,
+                    ExpReward = 13,
+                    Description = "移動速度極慢的近戰小怪，但衝刺時速度會大幅提升。",
+                    IconUrl = "/images/monsters/nurse.png"
+                },
+                new Monster
+                {
+                    Name = "紫色惡魔",
+                    Type = "近戰",
+                    Hp = 50,
+                    Attack = 5,
+                    MoveSpeed = 4,
+                    ExpReward = 10,
+                    Description = "死亡後會在原地留下毒液的近戰小怪。",
+                    IconUrl = "/images/monsters/purple-devil.png"
+                },
+                new Monster
+                {
+                    Name = "雙足猛犬",
+                    Type = "近戰",
+                    Hp = 155,
+                    Attack = 12,
+                    MoveSpeed = 2.5,
+                    ExpReward = 10,
+                    Description = "移動速度極慢，且血量極高的近戰小怪。",
+                    IconUrl = "/images/monsters/big-dog.png"
+                },
+                new Monster
+                {
+                    Name = "四足惡犬",
+                    Type = "近戰",
+                    Hp = 55,
+                    Attack = 6,
+                    MoveSpeed = 5,
+                    ExpReward = 11,
+                    Description = "移動速度極快，且血量極低的近戰小怪。",
+                    IconUrl = "/images/monsters/small-dog.png"
+                },
+                new Monster
+                {
+                    Name = "粉紅幽靈",
+                    Type = "近戰",
+                    Hp = 40,
+                    Attack = 4,
+                    MoveSpeed = 4,
+                    ExpReward = 0,
+                    Description = "會在原地掉落一個有毒愛心，玩家撿取後會造成20傷害。",
+                    IconUrl = "/images/monsters/pink-ghost.png"
+                }
+            };
 
             context.Monsters.AddRange(monsters);
+            context.SaveChanges();
+        }
+
+        private static void SeedCharacterAbilities(AppDbContext context)
+        {
+            if (context.CharacterAbilities.Any())
+            {
+                return;
+            }
+
+            Character? talan = context.Characters.FirstOrDefault(c => c.Name == "塔蘭");
+            Character? lilith = context.Characters.FirstOrDefault(c => c.Name == "莉莉絲");
+            Character? yui = context.Characters.FirstOrDefault(c => c.Name == "由依");
+            Character? irene = context.Characters.FirstOrDefault(c => c.Name == "艾琳");
+
+            if (talan == null || lilith == null || yui == null || irene == null)
+            {
+                return;
+            }
+
+            List<CharacterAbility> abilities = new List<CharacterAbility>
+            {
+                new CharacterAbility
+                {
+                    CharacterId = talan.Id,
+                    Description = "水魔法：發射強大的水球彈。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = talan.Id,
+                    Description = "火魔法：召喚火輪進行防禦。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = talan.Id,
+                    Description = "岩魔法：從地下召喚巨大岩塊進行攻擊。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = talan.Id,
+                    Description = "雷魔法：展開圓形電圈領域進行防禦。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = talan.Id,
+                    Description = "毒魔法：發射有毒且會迅速擴散的氣體。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = talan.Id,
+                    Description = "雷魔法：發射會到處彈跳的閃電箭。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = talan.Id,
+                    Description = "木魔法：發射木頭迴旋鏢。"
+                },
+
+                new CharacterAbility
+                {
+                    CharacterId = lilith.Id,
+                    Description = "衝刺攻擊：朝玩家方向快速衝刺，共執行3次。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = lilith.Id,
+                    Description = "召喚小怪：在自身周圍隨機位置召喚8隻德古拉攻擊玩家。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = lilith.Id,
+                    Description = "無死角射擊：以自身為圓心，向四周發射12枚獠牙子彈。"
+                },
+
+                new CharacterAbility
+                {
+                    CharacterId = yui.Id,
+                    Description = "衝刺射擊：朝玩家方向快速衝刺，停頓時以自身為圓心，向四周發射14枚冰彈，共執行3次。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = yui.Id,
+                    Description = "召喚小怪：在自身周圍隨機位置召喚8隻冰狼攻擊玩家。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = yui.Id,
+                    Description = "三重冰浪：召喚三道巨大冰浪從不同方向攻擊玩家。"
+                },
+
+                new CharacterAbility
+                {
+                    CharacterId = irene.Id,
+                    Description = "衝刺射擊：朝玩家方向快速衝刺，停頓時以自身為圓心，向四周發射16支愛心箭，共執行3次。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = irene.Id,
+                    Description = "召喚小怪：在自身周圍隨機位置召喚8隻粉紅幽靈攻擊玩家。"
+                },
+                new CharacterAbility
+                {
+                    CharacterId = irene.Id,
+                    Description = "愛心箭雨：以玩家為圓心，在圓形範圍內降下40支愛心箭攻擊玩家。"
+                }
+            };
+            context.CharacterAbilities.AddRange(abilities);
+            context.SaveChanges();
+        }
+
+        private static void SeedItems(AppDbContext context)
+        {
+            if (context.Items.Any())
+            {
+                return;
+            }
+
+            List<Item> items = new List<Item>
+            {
+                new Item
+                {
+                    Name = "愛心",
+                    Category = "恢復道具",
+                    Description = "撿取後恢復玩家生命值。",
+                    IconUrl = "/images/items/heart.png"
+                },
+                new Item
+                {
+                    Name = "有毒愛心",
+                    Category = "陷阱道具",
+                    Description = "外觀類似愛心，但撿取後會扣除生命值。",
+                    IconUrl = "/images/items/fake-heart.png"
+                },
+                new Item
+                {
+                    Name = "經驗方塊",
+                    Category = "成長道具",
+                    Description = "撿取後獲得經驗值，用於角色升級。",
+                    IconUrl = "/images/items/exp-gem.png"
+                },
+                new Item
+                {
+                    Name = "金幣",
+                    Category = "貨幣道具",
+                    Description = "可在額外內容頁面內購買永久強化。",
+                    IconUrl = "/images/items/coin.png"
+                },
+                new Item
+                {
+                    Name = "磁鐵",
+                    Category = "輔助道具",
+                    Description = "撿取後可吸引附近的經驗方塊。",
+                    IconUrl = "/images/items/magnet.png"
+                }
+            };
+            context.Items.AddRange(items);
             context.SaveChanges();
         }
     }

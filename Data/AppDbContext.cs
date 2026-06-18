@@ -17,5 +17,9 @@ namespace VpGameWeb.Data
         public DbSet<SkillLevel> SkillLevels { get; set; }
 
         public DbSet<Monster> Monsters { get; set; }
+
+        public DbSet<CharacterAbility> CharacterAbilities { get; set; }
+
+        public DbSet<Item> Items { get; set; }
     }
 }

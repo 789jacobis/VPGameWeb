@@ -25,8 +25,9 @@ namespace VpGameWeb.Models
         public string MonsterGroup { get; set; } = "";
 
         public string PortraitUrl { get; set; } = "";
+
         public string IconUrl { get; set; } = "";
 
-        public List<string> Skills { get; set; } = new();
+        public List<CharacterAbility> Abilities { get; set; } = new();
     }
 }

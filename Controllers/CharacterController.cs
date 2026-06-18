@@ -27,6 +27,7 @@ namespace VpGameWeb.Controllers
         {
             Character? character = _context.Characters
                 .AsNoTracking()
+                .Include(c => c.Abilities)
                 .FirstOrDefault(c => c.Id == id);
 
             if (character == null)

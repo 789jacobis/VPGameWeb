@@ -68,16 +68,16 @@
 
                     <p>@Model.Description</p>
 
-                    @if (Model.Skills.Any())
+                    @if (Model.Abilities.Any())
                     {
                         <hr />
 
                         <h4>技能列表</h4>
 
                         <ul>
-                            @foreach (var skill in Model.Skills)
+                            @foreach (var ability in Model.Abilities)
                             {
-                                <li>@skill</li>
+                                <li>@ability.Description</li>
                             }
                         </ul>
                     }
