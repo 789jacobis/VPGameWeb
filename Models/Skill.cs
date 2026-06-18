@@ -11,7 +11,7 @@
         public string Description { get; set; } = "";
 
         public string IconUrl { get; set; } = "";
-             
-        public List<SkillLevel> Levels { get; set; } = new List<SkillLevel>();
+
+        public List<SkillLevel> Levels { get; set; } = new();
     }
 }
