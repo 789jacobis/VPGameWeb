@@ -6,7 +6,6 @@ namespace VpGameWeb.Controllers.Api
 {
     [Route("api/items")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "Items")]
     public class ItemApiController : ControllerBase
     {
         private readonly IItemService _service;

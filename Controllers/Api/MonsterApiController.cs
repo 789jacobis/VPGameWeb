@@ -6,7 +6,6 @@ namespace VpGameWeb.Controllers.Api
 {
     [Route("api/monsters")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "Monsters")]
     public class MonsterApiController : ControllerBase
     {
         private readonly IMonsterService _service;

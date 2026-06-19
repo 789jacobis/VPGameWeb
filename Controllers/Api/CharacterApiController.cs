@@ -6,7 +6,6 @@ namespace VpGameWeb.Controllers.Api
 {
     [Route("api/characters")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "Characters")]
     public class CharacterApiController : ControllerBase
     {
         private readonly ICharacterService _service;

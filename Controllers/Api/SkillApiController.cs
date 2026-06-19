@@ -6,7 +6,6 @@ namespace VpGameWeb.Controllers.Api
 {
     [Route("api/skills")]
     [ApiController]
-    [ApiExplorerSettings(GroupName = "Skills")]
     public class SkillApiController : ControllerBase
     {
         private readonly ISkillService _service;
