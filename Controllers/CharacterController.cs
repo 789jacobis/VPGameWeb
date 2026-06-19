@@ -1,34 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using VpGameWeb.Models;
-using VpGameWeb.Data;
+using VpGameWeb.Services;
 
 namespace VpGameWeb.Controllers
 {
     public class CharacterController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly ICharacterService _service;
 
-        public CharacterController(AppDbContext context)
+        public CharacterController(ICharacterService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Character> characters = _context.Characters
-                .AsNoTracking()
-                .ToList();
+            List<Character> characters = await _service.GetAllForViewAsync();
 
             return View(characters);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            Character? character = _context.Characters
-                .AsNoTracking()
-                .Include(c => c.Abilities)
-                .FirstOrDefault(c => c.Id == id);
+            Character? character = await _service.GetByIdForViewAsync(id);
 
             if (character == null)
             {
@@ -36,6 +30,24 @@ namespace VpGameWeb.Controllers
             }
 
             return View(character);
+        }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Create(CharacterCreateViewModel vm)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(vm);
+            }
+
+            await _service.CreateAsync(vm);
+
+            return RedirectToAction("Index");
         }
     }
 }

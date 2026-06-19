@@ -1,34 +1,28 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using VpGameWeb.Data;
+using Microsoft.AspNetCore.Mvc;
 using VpGameWeb.Models;
+using VpGameWeb.Services;
 
 namespace VpGameWeb.Controllers
 {
     public class SkillController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly ISkillService _service;
 
-        public SkillController(AppDbContext context)
+        public SkillController(ISkillService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Skill> skills = _context.Skills
-                .AsNoTracking()
-                .ToList();
+            List<Skill> skills = await _service.GetAllForViewAsync();
 
             return View(skills);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            Skill? skill = _context.Skills
-                .AsNoTracking()
-                .Include(s => s.Levels)
-                .FirstOrDefault(s => s.Id == id);
+            Skill? skill = await _service.GetByIdForViewAsync(id);
 
             if (skill == null)
             {

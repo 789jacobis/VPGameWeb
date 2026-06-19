@@ -1,33 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using VpGameWeb.Data;
 using VpGameWeb.Models;
+using VpGameWeb.Services;
 
 namespace VpGameWeb.Controllers
 {
     public class ItemController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IItemService _service;
 
-        public ItemController(AppDbContext context)
+        public ItemController(IItemService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Item> items = _context.Items
-                .AsNoTracking()
-                .ToList();
+            List<Item> items = await _service.GetAllForViewAsync();
 
             return View(items);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            Item? item = _context.Items
-                .AsNoTracking()
-                .FirstOrDefault(i => i.Id == id);
+            Item? item = await _service.GetByIdForViewAsync(id);
 
             if (item == null)
             {

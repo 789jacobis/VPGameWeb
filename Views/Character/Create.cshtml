@@ -1,0 +1,33 @@
+﻿@model VpGameWeb.Models.CharacterCreateViewModel
+
+<h2>新增角色</h2>
+
+<form asp-action="Create" method="post">
+
+    <input asp-for="Name" placeholder="Name" />
+    <br />
+
+    <input asp-for="Race" placeholder="Race" />
+    <br />
+
+    <input asp-for="Age" placeholder="Age" />
+    <br />
+
+    <input asp-for="Hp" placeholder="HP" />
+    <br />
+
+    <input asp-for="Attack" placeholder="Attack" />
+    <br />
+
+    <input asp-for="MoveSpeed" placeholder="MoveSpeed" />
+    <br />
+
+    <input asp-for="Description" placeholder="Description" />
+    <br />
+
+    <input asp-for="IconUrl" placeholder="IconUrl" />
+    <br />
+
+    <button type="submit">新增</button>
+
+</form>

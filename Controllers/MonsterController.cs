@@ -1,33 +1,28 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using VpGameWeb.Data;
 using VpGameWeb.Models;
+using VpGameWeb.Services;
 
 namespace VpGameWeb.Controllers
 {
     public class MonsterController : Controller
     {
-        private readonly AppDbContext _context;
+        private readonly IMonsterService _service;
 
-        public MonsterController(AppDbContext context)
+        public MonsterController(IMonsterService service)
         {
-            _context = context;
+            _service = service;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            List<Monster> monsters = _context.Monsters
-                .AsNoTracking()
-                .ToList();
+            List<Monster> monsters = await _service.GetAllForViewAsync();
 
             return View(monsters);
         }
 
-        public IActionResult Details(int id)
+        public async Task<IActionResult> Details(int id)
         {
-            Monster? monster = _context.Monsters
-                .AsNoTracking()
-                .FirstOrDefault(m => m.Id == id);
+            Monster? monster = await _service.GetByIdForViewAsync(id);
 
             if (monster == null)
             {

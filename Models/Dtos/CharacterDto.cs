@@ -1,6 +1,6 @@
-namespace VpGameWeb.Models
+namespace VpGameWeb.Models.Dtos
 {
-    public class Character
+    public class CharacterDto
     {
         public int Id { get; set; }
         public string Name { get; set; } = "";
@@ -15,6 +15,6 @@ namespace VpGameWeb.Models
         public string MonsterGroup { get; set; } = "";
         public string PortraitUrl { get; set; } = "";
         public string IconUrl { get; set; } = "";
-        public List<CharacterAbility> Abilities { get; set; } = new();
+        public List<CharacterAbilityDto> Abilities { get; set; } = new();
     }
 }

@@ -158,7 +158,7 @@ namespace VpGameWeb.Data
                             Description = "愛心箭雨：以玩家為圓心，在圓形範圍內降下40支愛心箭攻擊玩家。"
                         }
                     }
-                }
+                },
             };
             context.Characters.AddRange(characters);
             context.SaveChanges();

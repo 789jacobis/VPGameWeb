@@ -1,44 +1,92 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi;
+using System.Reflection;
 using VpGameWeb.Data;
+using VpGameWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
+
+//
+// 1️⃣ DB
+//
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite(
         builder.Configuration.GetConnectionString("DefaultConnection")
     ));
 
-// Add services to the container.
+//
+// 2️⃣ Services
+//
+builder.Services.AddScoped<ICharacterService, CharacterService>();
+builder.Services.AddScoped<ISkillService, SkillService>();
+builder.Services.AddScoped<IMonsterService, MonsterService>();
+builder.Services.AddScoped<IItemService, ItemService>();
+builder.Services.AddScoped<LoreService>();
+
+//
+// 3️⃣ MVC + API
+//
 builder.Services.AddControllersWithViews();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Title = "VPGameWeb API",
+        Version = "v1",
+        Description = "Backend API for VPGameWeb portfolio data."
+    });
+
+    var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+    if (File.Exists(xmlPath))
+    {
+        options.IncludeXmlComments(xmlPath);
+    }
+});
 
 var app = builder.Build();
 
-using (IServiceScope scope = app.Services.CreateScope())
+//
+// 4️⃣ Seed（初始化資料）
+//
+if (app.Environment.IsDevelopment())
 {
-    AppDbContext context =
-        scope.ServiceProvider.GetRequiredService<AppDbContext>();
-
+    using var scope = app.Services.CreateScope();
+    var context = scope.ServiceProvider.GetRequiredService<AppDbContext>();
     DbInitializer.Seed(context);
 }
 
-// Configure the HTTP request pipeline.
+//
+// 5️⃣ HTTP pipeline
+//
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
+}
+else
+{
+    app.UseSwagger();
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/swagger/v1/swagger.json", "VPGameWeb API v1");
+        options.DocumentTitle = "VPGameWeb API Docs";
+    });
 }
 
 app.UseHttpsRedirection();
 app.UseRouting();
-
 app.UseAuthorization();
 
 app.MapStaticAssets();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}")
-    .WithStaticAssets();
-
+    pattern: "{controller=Home}/{action=Index}/{id?}"
+).WithStaticAssets();
 
 app.Run();
