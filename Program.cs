@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi;
 using System.Reflection;
 using VpGameWeb.Data;
+using VpGameWeb.Middleware;
 using VpGameWeb.Services;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -79,6 +80,9 @@ else
 }
 
 app.UseHttpsRedirection();
+app.UseWhen(
+    context => context.Request.Path.StartsWithSegments("/api"),
+    branch => branch.UseMiddleware<ApiExceptionHandlingMiddleware>());
 app.UseRouting();
 app.UseAuthorization();
 
