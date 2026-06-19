@@ -1,0 +1,14 @@
+.git
+.github
+.vs
+bin
+obj
+**/bin
+**/obj
+VpGameWeb.Tests
+*.user
+*.suo
+*.db-shm
+*.db-wal
+run-check*.log
+screenshot-run*.log

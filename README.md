@@ -153,6 +153,27 @@ dotnet run --project VpGameWeb.csproj
 
 The app runs the database initializer only in Development, so seed data is available locally without affecting production-like runtime behavior.
 
+## Deploy to Render
+
+This project includes a `Dockerfile` for Render Web Service deployment.
+
+Recommended Render settings:
+
+```text
+Service Type: Web Service
+Runtime: Docker
+Branch: main
+Dockerfile Path: ./Dockerfile
+```
+
+The Docker container starts ASP.NET Core with Render's `PORT` environment variable:
+
+```bash
+dotnet VpGameWeb.dll --urls http://0.0.0.0:${PORT:-8080}
+```
+
+For this portfolio demo, the container defaults to `ASPNETCORE_ENVIRONMENT=Development` so Swagger and seed data are available after deployment.
+
 ## Tests
 
 ```bash
