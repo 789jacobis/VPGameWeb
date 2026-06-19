@@ -172,7 +172,7 @@ The Docker container starts ASP.NET Core with Render's `PORT` environment variab
 dotnet VpGameWeb.dll --urls http://0.0.0.0:${PORT:-8080}
 ```
 
-For this portfolio demo, the container defaults to `ASPNETCORE_ENVIRONMENT=Development` so Swagger and seed data are available after deployment.
+For this portfolio demo, the container defaults to `ASPNETCORE_ENVIRONMENT=Development` so Swagger and seed data are available after deployment. On startup, the app creates the SQLite schema when needed and then seeds demo data.
 
 ## Tests
 
