@@ -25,7 +25,7 @@ namespace VpGameWeb.Data
                 {
                     Race = "人類",
                     Name = "塔蘭",
-                    Age = "29歲",
+                    Age = "19歲",
                     Hp = 100,
                     MoveSpeed = 6,
                     Traits = "木頭",
@@ -74,7 +74,7 @@ namespace VpGameWeb.Data
                 {
                     Race = "吸血鬼",
                     Name = "莉莉絲",
-                    Age = "25歲",
+                    Age = "17歲",
                     Hp = 8000,
                     Attack = 15,
                     MoveSpeed = 4,
@@ -104,7 +104,7 @@ namespace VpGameWeb.Data
                 {
                     Race = "雪女",
                     Name = "由依",
-                    Age = "29歲",
+                    Age = "21歲",
                     Hp = 12000,
                     Attack = 20,
                     MoveSpeed = 4,
@@ -134,7 +134,7 @@ namespace VpGameWeb.Data
                 {
                     Race = "魅魔",
                     Name = "艾琳",
-                    Age = "40歲",
+                    Age = "35歲",
                     Hp = 16000,
                     Attack = 30,
                     MoveSpeed = 5,
