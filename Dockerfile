@@ -13,6 +13,7 @@ WORKDIR /app
 COPY --from=build /app/publish .
 
 ENV ASPNETCORE_ENVIRONMENT=Development
+ENV DOTNET_HOSTBUILDER__RELOADCONFIGONCHANGE=false
 EXPOSE 8080
 
 CMD ["sh", "-c", "dotnet VpGameWeb.dll --urls http://0.0.0.0:${PORT:-8080}"]
